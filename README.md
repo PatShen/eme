@@ -53,3 +53,41 @@ If you are not available for this, simply spreading the word for us would help t
 ## License
 
 MIT &copy; [EGOIST](https://github.com/egoist)
+
+## New notes
+
+### Install yarn
+
+```
+brew install yarn
+```
+
+### Build it on mac
+
+```
+yarn mac
+
+yarn run v1.22.19
+$ electron-builder --mac --config electron-builder.json
+/bin/sh: electron-builder: command not found
+```
+
+```
+yarn add electron-builder --dev
+
+yarn add v1.22.19
+[1/4] 🔍  Resolving packages...
+warning electron-builder > app-builder-lib > electron-osx-sign@0.6.0: Please use @electron/osx-sign moving forward. Be aware the API is slightly different
+warning electron-builder > app-builder-lib > @electron/universal > asar@3.2.0: Please use @electron/asar moving forward.  There is no API change, just a package name change
+[2/4] 🚚  Fetching packages...
+error app-builder-lib@23.6.0: The engine "node" is incompatible with this module. Expected version ">=14.0.0". Got "12.22.12"
+error Found incompatible module.
+info Visit https://yarnpkg.com/en/docs/cli/add for documentation about this command.
+```
+
+The local node version is too lower. And I found that the node was installed by `nvm`. So let's update it!
+
+```
+nvm install v14.0.0 --reinstall-packages-from=current
+```
+> If we try to upgrade the version of node too high, it may cause some new errors. So we just upgrade it to the minimum version.
